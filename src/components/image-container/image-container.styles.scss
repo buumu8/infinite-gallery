@@ -1,0 +1,11 @@
+.image-container {
+  position: relative;
+  width: 80%;
+  top: 0;
+  left: 10%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  // justify-content: space-between;
+  // flex-flow: row wrap;
+}

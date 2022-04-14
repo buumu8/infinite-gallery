@@ -1,0 +1,15 @@
+.image-card {
+  // width: 30%;
+  // outline: red solid;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 5px 5px 3px 3px #0003;
+  background: #fff;
+}
+
+.image {
+  width: 100%;
+  &:hover {
+    opacity: 0.8;
+  }
+}
