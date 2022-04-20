@@ -5,6 +5,12 @@
   padding: 20px;
   box-shadow: 5px 5px 3px 3px #0003;
   background: #fff;
+  position: relative;
+  // height: 300px;
+}
+
+.image-card a {
+  text-decoration: none;
 }
 
 .image {
@@ -13,5 +19,25 @@
   object-fit: cover;
   &:hover {
     opacity: 0.8;
+    animation: zoomin 5s 1;
   }
+}
+
+.image-wrapper {
+  display: inline-block;
+  overflow: hidden;
+  height: 100%;
+}
+
+@keyframes zoomin {
+  0% {
+    -webkit-transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(1.5);
+  }
+}
+
+.image:hover + .image-details {
+  display: block;
 }

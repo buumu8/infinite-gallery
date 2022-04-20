@@ -2,6 +2,10 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App";
+import { store } from "./app/store";
+import { Provider } from "react-redux";
+import ErrorBoundary from "./components/error-boundary/error-boundary.component";
+
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 
@@ -10,7 +14,11 @@ const root = createRoot(rootElement);
 
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <ErrorBoundary>
+        <App />
+      </ErrorBoundary>
+    </Provider>
   </React.StrictMode>
 );
 
