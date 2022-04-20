@@ -50,6 +50,7 @@ export const gallerySlice = createSlice({
   extraReducers: {
     [getImages.pending]: (state) => {
       state.loading = true;
+      state.error = null;
     },
     [getImages.fulfilled]: (state, { payload }) => {
       state.loading = false;

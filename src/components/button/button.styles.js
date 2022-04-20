@@ -2,18 +2,17 @@ import styled, { css } from "styled-components";
 
 const baseButtonStyles = css`
   cursor: pointer;
-  font-size: ${(props) => props.theme.fontSizes.title};
-  height: ${(props) => props.theme.space[4]};
+  font-size: 1rem;
   border: none;
-  border-radius: ${(props) => props.theme.sizes[0]};
-  color: ${(props) => props.theme.colors.bg.primary};
-  background: ${(props) => props.theme.colors.ui.primary};
+  border-radius: 8px;
+  color: #ffffff;
+  background: #262626;
   outline: none;
-  padding: ${(props) => props.theme.space[1]} ${(props) => props.theme.space[4]};
+  padding: 1rem;
   box-shadow: 0 0.3rem rgba(121, 121, 121, 0.65);
   &:hover {
     filter: brightness(110%);
-    background-color: ${(props) => props.theme.colors.brand.primary};
+    background-color: #262626;
   }
   &:active {
     transform: translate(0, 0.3rem);
@@ -24,7 +23,7 @@ const baseButtonStyles = css`
 const extendsTwitterButton = css`
   :hover {
     color: #38a1f3;
-    background-color: ${(props) => props.theme.colors.ui.primary};
+    background-color: #262626;
   }
 `;
 

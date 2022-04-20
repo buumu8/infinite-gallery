@@ -1,10 +1,14 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 import {
   ErrorImageOverlay,
   ErrorImageContainer,
   ErrorImageText,
+  ErrorImageTextSub,
 } from "./error-boundary.styles";
 
+import { selectError } from "../../features/gallery/gallery-slice";
 import { Button } from "../button/button.component";
 
 class ErrorBoundary extends Component {
@@ -28,12 +32,19 @@ class ErrorBoundary extends Component {
   }
 
   render() {
+    const { errorMsg } = this.props;
     if (this.state.hasErrored) {
-      console.log(this.state.errorMessage);
       return (
         <ErrorImageOverlay>
           <ErrorImageContainer imageUrl="https://i.imgur.com/O0DCcQy.png" />
-          <ErrorImageText>Sorry this page is broken.</ErrorImageText>
+          <ErrorImageText>
+            {errorMsg ?? "Sorry this page is broken."}
+          </ErrorImageText>
+          <ErrorImageTextSub>
+            {errorMsg === "Rate Limit Exceeded"
+              ? "Please try again after 1 hour. "
+              : "Please Try again Later."}
+          </ErrorImageTextSub>
           <Button onClick={() => window.location.reload()}>Refresh</Button>
         </ErrorImageOverlay>
       );
@@ -42,4 +53,8 @@ class ErrorBoundary extends Component {
   }
 }
 
-export default ErrorBoundary;
+const mapStateToProps = createStructuredSelector({
+  errorMsg: selectError,
+});
+
+export default connect(mapStateToProps)(ErrorBoundary);
